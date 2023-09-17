@@ -64,6 +64,7 @@
   color: #848484;
   overflow: hidden;
   border-top: 1px solid #f3f4f5;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (max-width: 640px) {

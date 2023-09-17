@@ -1,0 +1,97 @@
+.todosContainer {
+  width: 70%;
+  min-width: 500px;
+  max-height: 800px;
+  background: white;
+  box-shadow: 1px 1px 5px #a7a7a7;
+}
+
+.addTaskInputContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f3f4f5;
+}
+
+.addTaskInputLeftIcon {
+  padding: 8px 16px 0px 16px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.addTaskInput {
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  color: #545454;
+}
+
+.addTaskInput::placeholder {
+  opacity: 0.5;
+  font-size: 16px;
+  color: #848484;
+}
+
+.addTaskInput:focus {
+  outline: none;
+}
+
+.tasksListContainer {
+  max-height: 700px;
+  transition: all 0.3s ease-in-out;
+  overflow: auto;
+  scrollbar-width: 2px;
+  scrollbar-color: red orange;
+}
+
+.tasksListContainer::-webkit-scrollbar {
+  width: 2px;
+}
+
+.tasksListContainer::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+
+.taskItemContainer {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.filtersContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 16px;
+  color: #848484;
+  overflow: hidden;
+  border-top: 1px solid #f3f4f5;
+}
+
+.filtersActiveTasksCount {
+  text-wrap: nowrap;
+}
+
+.filterButtonsContainer {
+  display: flex;
+}
+
+.filterButton {
+  padding: 2px 4px;
+  margin: 0px 4px;
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+
+.filterButton:hover {
+  outline: 1px solid #848484;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.filterSelected {
+  outline: 1px solid #848484;
+  border-radius: 5px;
+  user-select: none;
+}

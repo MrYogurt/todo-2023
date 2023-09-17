@@ -1,4 +1,5 @@
 .taskCheckboxContainer {
+  display: flex;
   padding-left: 16px;
   user-select: none;
 }
@@ -14,7 +15,6 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  /* background-image: none; */
   border: 1px solid #b8b8b8;
 }
 

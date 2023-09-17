@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useCallback, useState } from "react";
 import { AddTaskInputMemoized } from "./AddTaskInput";
 import styles from "./styles.module.css";
 import { TasksList } from "./TasksList";
@@ -48,14 +48,15 @@ export const TodosContainer = () => {
   const [isExpand, setExpand] = useState(true);
   const [selectedFilter, setFilter] = useState<TaskFilters>("all");
 
-  const handleExpandTasks = () => setExpand((prev) => !prev);
-  const handleAddTask = (description: string) => {
+  const handleExpandTasks = useCallback(() => setExpand((prev) => !prev), []);
+
+  const handleAddTask = useCallback((description: string) => {
     setTasks((prevTasks) => [
       ...prevTasks,
       { id: Date.now().toString(), description, status: "active" },
     ]);
     setActiveTasksCount((prev) => prev + 1);
-  };
+  }, []);
 
   const handleChangeFilter: MouseEventHandler<HTMLDivElement> = (event) => {
     setFilter(event.currentTarget.getAttribute("data-name") as TaskFilters);
@@ -73,9 +74,7 @@ export const TodosContainer = () => {
         if (task.id === id) {
           const isActive = task.status === "active";
 
-          if (isActive) {
-            setActiveTasksCount((prev) => prev - 1);
-          }
+          setActiveTasksCount((prev) => (isActive ? prev - 1 : prev + 1));
 
           return {
             ...task,
